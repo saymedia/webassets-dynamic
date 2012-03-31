@@ -1,4 +1,9 @@
-from django.conf.urls import RegexURLPattern, RegexURLResolver
+try:
+    from django.conf.urls import RegexURLPattern, RegexURLResolver
+except ImportError:
+    # Django 1.3.x fallback
+    from django.conf.urls.defaults import RegexURLPattern, RegexURLResolver
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.views.static import serve
